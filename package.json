@@ -1,0 +1,8 @@
+{
+  "name": "nonprofit-citation-collector",
+  "private": true,
+  "type": "module",
+  "scripts": {"start": "tsx src/example.ts", "test": "tsx src/citation_service.test.ts", "typecheck": "tsc --noEmit"},
+  "dependencies": {"openai": "^4.80.0", "zod": "^3.24.1"},
+  "devDependencies": {"tsx": "^4.19.2", "typescript": "^5.7.2"}
+}
