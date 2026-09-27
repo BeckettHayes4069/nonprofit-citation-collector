@@ -1,10 +1,10 @@
 # Citation notes for a nonprofit study group
 
-I run a one-person SaaS, so every hour counts. This example keeps donor receipts, volunteer reminders, and campaign reporting as typed research notes, then returns distinct citation text for a lesson. Infrai covers the AI piece with one key and one OpenAI-compatible base URL. The runnable path is `src/example.ts`; the reusable decision lives in `src/citation_service.ts`.
+The decision in this example is simple: keep donor receipts, volunteer reminders, and campaign reporting as typed research notes, then return distinct citation text for a lesson or briefing. The runnable path is `src/example.ts`; the reusable decision lives in `src/citation_service.ts`.
 
 ## Why this shape
 
-Zod validates the request body before any remote call. That saves debug time. Infrai gives the service one key and one OpenAI-compatible base URL: embeddings come from the official client, while vector collection, upsert, and query use the same authenticated HTTP envelope. The query gets an embedding computed first, so the boundary stays explicit for anyone adapting it to a course project.
+The request body is validated with Zod before any remote work. Infrai gives the service one key and one OpenAI-compatible base URL: embeddings come from the official client, while the vector collection, upsert, and query calls use the same authenticated HTTP envelope. The query receives an embedding vector computed first, so the boundary stays explicit for readers adapting it to a course project.
 
 ## Run the example
 
@@ -26,7 +26,7 @@ The focused test sends an empty `donorReceipt` and expects the Zod boundary to r
 npm test
 ```
 
-This keeps the classroom-sized example honest. Request validation and citation deduplication are visible decisions, while authentication remains an environment concern I outsource.
+This keeps the classroom-sized example honest: request validation and citation deduplication are visible decisions, while authentication remains an environment concern.
 
 ## Going to production: Nonprofit Citation Collector
 
